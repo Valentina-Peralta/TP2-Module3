@@ -2,9 +2,7 @@
 
 Este repositorio contiene los archivos y configuraciones necesarios para crear y administrar un entorno con 4 servidores en Linux utilizando Docker y SSH. 
 
-- **server1**: Configuración y Dockerfile para el primer servidor.
-
-# Configuración de cada servidor
+## Configuración de cada servidor
 
 Este Dockerfile se utiliza para construir una imagen de contenedor que actúa como el servidor 1 en tu entorno Docker. A continuación, se explican las etapas y los comandos utilizados en el Dockerfile:
 
@@ -25,19 +23,19 @@ Este Dockerfile se utiliza para construir una imagen de contenedor que actúa co
 8. `CMD ["/usr/sbin/sshd", "-D"]`: Define el comando que se ejecutará cuando se inicie el contenedor. En este caso, se ejecuta el servidor SSH (`sshd`) en modo demonio (`-D`), lo que permite que el contenedor escuche las conexiones SSH.
 
 
-# Archivo de Docker Compose
+## Archivo de Docker Compose
 
 Este archivo de Docker Compose se utiliza para definir y orquestar los servicios de los contenedores que componen tu entorno de servidores Docker. A continuación, se explican las secciones y los servicios definidos en el archivo:
 
-## Versión de Docker Compose
+### Versión de Docker Compose
 
 - `version: '3'`: Indica la versión del formato de Docker Compose que se está utilizando. En este caso, se utiliza la versión 3.
 
-## Definición de Servicios
+### Definición de Servicios
 
 Dentro de la sección `services`, se definen los diferentes servicios o contenedores que se crearán. Cada servicio tiene su propia configuración. En este caso, se definen cuatro servicios: `server1`, `server2`, `server3` y `bastion`.
 
-### Servicio server1
+#### Servicio server1
 
 - `build`: Indica que la imagen del contenedor para `server1` se construirá a partir de los archivos en el directorio `./server1`.
 
@@ -47,7 +45,7 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 
 - `networks`: Asocia el contenedor `server1` a la red `my_network` para que pueda comunicarse con otros contenedores en la misma red.
 
-### Servicio server2
+#### Servicio server2
 
 - `build`: Indica que la imagen del contenedor para `server2` se construirá a partir de los archivos en el directorio `./server2`.
 
@@ -57,7 +55,7 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 
 - `networks`: Asocia el contenedor `server2` a la red `my_network`.
 
-### Servicio server3
+#### Servicio server3
 
 - `build`: Indica que la imagen del contenedor para `server3` se construirá a partir de los archivos en el directorio `./server3`.
 
@@ -67,7 +65,7 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 
 - `networks`: Asocia el contenedor `server3` a la red `my_network`.
 
-### Servicio bastion
+#### Servicio bastion
 
 - `build`: Indica que la imagen del contenedor para `bastion` se construirá a partir de los archivos en el directorio `./bastion`.
 
@@ -77,7 +75,7 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 
 - `networks`: Asocia el contenedor `bastion` a la red `my_network`.
 
-## Definición de Red
+### Definición de Red
 
 - `networks`: Esta sección define una red llamada `my_network`, que se utiliza para conectar todos los contenedores entre sí. Los contenedores que están en la misma red pueden comunicarse utilizando los nombres de host de los contenedores como direcciones.
 
