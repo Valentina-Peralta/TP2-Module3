@@ -35,7 +35,7 @@ Este archivo de Docker Compose se utiliza para definir y orquestar los servicios
 
 Dentro de la sección `services`, se definen los diferentes servicios o contenedores que se crearán. Cada servicio tiene su propia configuración. En este caso, se definen cuatro servicios: `server1`, `server2`, `server3` y `bastion`.
 
-#### Servicio server1
+##### Ejemplo: Servicio server1
 
 - `build`: Indica que la imagen del contenedor para `server1` se construirá a partir de los archivos en el directorio `./server1`.
 
@@ -45,35 +45,6 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 
 - `networks`: Asocia el contenedor `server1` a la red `my_network` para que pueda comunicarse con otros contenedores en la misma red.
 
-#### Servicio server2
-
-- `build`: Indica que la imagen del contenedor para `server2` se construirá a partir de los archivos en el directorio `./server2`.
-
-- `container_name`: Define un nombre específico para el contenedor de `server2`.
-
-- `ports`: Mapea el puerto 22 del contenedor al puerto 2223 del host.
-
-- `networks`: Asocia el contenedor `server2` a la red `my_network`.
-
-#### Servicio server3
-
-- `build`: Indica que la imagen del contenedor para `server3` se construirá a partir de los archivos en el directorio `./server3`.
-
-- `container_name`: Define un nombre específico para el contenedor de `server3`.
-
-- `ports`: Mapea el puerto 22 del contenedor al puerto 2224 del host.
-
-- `networks`: Asocia el contenedor `server3` a la red `my_network`.
-
-#### Servicio bastion
-
-- `build`: Indica que la imagen del contenedor para `bastion` se construirá a partir de los archivos en el directorio `./bastion`.
-
-- `container_name`: Define un nombre específico para el contenedor de `bastion`.
-
-- `ports`: Mapea el puerto 22 del contenedor al puerto 2221 del host.
-
-- `networks`: Asocia el contenedor `bastion` a la red `my_network`.
 
 ### Definición de Red
 
@@ -84,11 +55,12 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 
 Sigue estos pasos para levantar los servidores en tu entorno local:
 
-1. Asegúrate de tener Docker instalado en tu sistema.
-2. Clona este repositorio en tu máquina local.
+### Asegúrate de tener Docker instalado en tu sistema.
+### Clona este repositorio en tu máquina local.
 
    ```bash
    git clone https://github.com/tuusuario/turepositorio.git
+```
 
 ### Levantar los contenedores
 
@@ -108,7 +80,7 @@ Desde tu máquina local, puedes acceder a los servidores a través de SSH. Para 
 Conéctate al servidor bastión con el siguiente comando:
 
    ```bash
-       ssh -p 2221 bastionuser@localhost
+   ssh -p 2221 bastionuser@localhost
    ```
        
 Una vez dentro del servidor bastión, puedes conectarte a `server1`, `server2` o `server3` utilizando SSH con las credenciales adecuadas.
@@ -117,7 +89,7 @@ Una vez dentro del servidor bastión, puedes conectarte a `server1`, `server2` o
 Conectarse desde el servidor bastión al servidor 1:
 
    ```bash
-    ssh user1@server1
+   ssh user1@server1
    ```
 
 ## Acceso a los Servidores
