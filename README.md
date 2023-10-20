@@ -80,8 +80,6 @@ Dentro de la sección `services`, se definen los diferentes servicios o contened
 - `networks`: Esta sección define una red llamada `my_network`, que se utiliza para conectar todos los contenedores entre sí. Los contenedores que están en la misma red pueden comunicarse utilizando los nombres de host de los contenedores como direcciones.
 
 
-
-
 ## Uso
 
 Sigue estos pasos para levantar los servidores en tu entorno local:
@@ -102,20 +100,26 @@ Dentro de la carpeta del repositorio, ejecutar:
 
 Ahora los servidores estarán disponibles para su acceso a través de SSH.
 
+
 ### Desde el servidor bastión, puedes conectarte a server1, server2, o server2.
 
-Ingresar al servidor bastión:
+Desde tu máquina local, puedes acceder a los servidores a través de SSH. Para hacerlo, sigue estos pasos:
+
+Conéctate al servidor bastión con el siguiente comando:
 
    ```bash
-    docker exec -it bastion /bin/bash
+       ssh -p 2221 bastionuser@localhost
    ```
-  
+       
+Una vez dentro del servidor bastión, puedes conectarte a `server1`, `server2` o `server3` utilizando SSH con las credenciales adecuadas.
+
 
 Conectarse desde el servidor bastión al servidor 1:
 
    ```bash
     ssh user1@server1
    ```
+
 ## Acceso a los Servidores
 
 **Servidor Bastión:**
